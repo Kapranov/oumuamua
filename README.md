@@ -7,12 +7,17 @@ Elixir" easier.
 
 ```
 iex> mix new ./ --app oumuamua --umbrella
+iex> cd apps; mix new streamer --sup
 ```
 
 ## Running
 
 ```
 iex> -S mix
+```
+
+```
+iex> Streamer.Binance.start_link("xrpusdt", [])
 ```
 
 ### 6 Feb 2021 by Oleg G.Kapranov
