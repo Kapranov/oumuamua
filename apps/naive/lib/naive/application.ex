@@ -5,7 +5,11 @@ defmodule Naive.Application do
 
   @impl true
   def start(_type, _args) do
-    children = []
+    children = [
+      {DynamicSupervisor, strategy: :one_for_one, name: Naive.DynamicSupervisor},
+      {Naive.Server, []}
+    ]
+
     opts = [strategy: :one_for_one, name: Naive.Supervisor]
     Supervisor.start_link(children, opts)
   end
